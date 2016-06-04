@@ -1,7 +1,5 @@
 package br.com.sisnema.financeiroweb.negocio;
 
-import java.util.List;
-
 import br.com.sisnema.financeiroweb.dao.UsuarioDAO;
 import br.com.sisnema.financeiroweb.domain.UsuarioPermissao;
 import br.com.sisnema.financeiroweb.exception.DAOException;
@@ -31,7 +29,7 @@ public class UsuarioRN extends RN<Usuario> {
 				Usuario userExistente = buscarUsuarioPorLogin(usuarioDaTela.getLogin());
 				
 				if(userExistente != null){
-					throw new RNException("Já existe um usuário com o login informado");
+					throw new RNException("Jï¿½ existe um usuï¿½rio com o login informado");
 				}
 				
 				usuarioDaTela.getPermissao().add(UsuarioPermissao.ROLE_USUARIO);
@@ -41,22 +39,6 @@ public class UsuarioRN extends RN<Usuario> {
 				throw new RNException(e.getMessage(),e);
 			}
 		}
-	}
-
-	public void excluir(Usuario model) throws RNException {
-		try {
-			dao.excluir(model);
-		} catch (DAOException e) {
-			throw new RNException(e.getMessage(), e);
-		}
-	}
-
-	public Usuario obterPorId(Usuario filtro) {
-		return dao.obterPorId(filtro);
-	}
-
-	public List<Usuario> pesquisar(Usuario filtros) {
-		return dao.pesquisar(filtros);
 	}
 
 	public Usuario buscarUsuarioPorLoginESenha(String login, String senha){

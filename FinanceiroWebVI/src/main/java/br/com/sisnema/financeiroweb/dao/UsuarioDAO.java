@@ -22,7 +22,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 		try {
 			getSession().save(model);
 		} catch (Exception e) {
-			throw new DAOException("Não foi possível inserir o usuário. Erro: "+e.getMessage(),e);
+			throw new DAOException("NÃ£o foi possÃ­vel inserir o usuÃ¡rio. Erro: "+e.getMessage(),e);
 		}
 	}
 	
@@ -32,7 +32,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 			Usuario usuarioDoBanco = obterPorId(usuarioDaTela);
 			usuarioDaTela.setPermissao(usuarioDoBanco.getPermissao());
 			
-			// removemos da sessao o objeto para não dar conflito
+			// removemos da sessao o objeto para nï¿½o dar conflito
 			// com o objeto a ser salvo proveniente do banco
 			getSession().evict(usuarioDoBanco);
 			
@@ -44,18 +44,10 @@ public class UsuarioDAO extends DAO<Usuario> {
 			rollback();
 			beginTransaction();
 			
-			throw new LockException("Este registro acaba de ser atualizado por outro usuário. "
-					+ "Refaça a pesquisa", ole);
+			throw new LockException("Este registro acaba de ser atualizado por outro usuï¿½rio. "
+					+ "Refaï¿½a a pesquisa", ole);
 		} catch (Exception e) {
-			throw new DAOException("Não foi possível alterar o usuário. Erro: "+e.getMessage(),e);
-		}
-	}
-
-	public void excluir(Usuario model) throws DAOException {
-		try {
-			getSession().delete(model);
-		} catch (Exception e) {
-			throw new DAOException("Não foi possível excluir o usuário. Erro: "+e.getMessage(),e);
+			throw new DAOException("Nï¿½o foi possï¿½vel alterar o usuï¿½rio. Erro: "+e.getMessage(),e);
 		}
 	}
 
@@ -83,7 +75,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 	public Usuario buscarUsuarioPorLoginESenha(String login, String senha){
 		Criteria criteria = getSession().createCriteria(Usuario.class, "usuario");
 
-		// criamos um join na pesquisa retornando todas as permissões do usuário
+		// criamos um join na pesquisa retornando todas as permissï¿½es do usuï¿½rio
 		criteria.createAlias("usuario.permissao", "permissao", JoinType.INNER_JOIN);
 		
 		criteria.add(Restrictions.eq("login", login));
@@ -91,7 +83,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 		
 		Usuario user = (Usuario) criteria.uniqueResult();
 		
-		// outra forma, seria após a pesquisa, inicializar os atributos em questão
+		// outra forma, seria apï¿½s a pesquisa, inicializar os atributos em questï¿½o
 		if(user != null){
 			Hibernate.initialize(user.getPermissao());
 		}
