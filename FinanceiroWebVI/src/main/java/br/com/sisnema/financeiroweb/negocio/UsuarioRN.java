@@ -29,7 +29,7 @@ public class UsuarioRN extends RN<Usuario> {
 				Usuario userExistente = buscarUsuarioPorLogin(usuarioDaTela.getLogin());
 				
 				if(userExistente != null){
-					throw new RNException("Jï¿½ existe um usuï¿½rio com o login informado");
+					throw new RNException("Já existe um usuário com o login informado");
 				}
 				
 				usuarioDaTela.getPermissao().add(UsuarioPermissao.ROLE_USUARIO);
@@ -48,7 +48,6 @@ public class UsuarioRN extends RN<Usuario> {
 	public Usuario buscarUsuarioPorLogin(String login){
 		return ((UsuarioDAO) dao).buscarUsuarioPorLogin(login);
 	}
-	
 }
 
 

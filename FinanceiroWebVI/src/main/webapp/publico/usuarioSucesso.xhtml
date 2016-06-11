@@ -4,16 +4,14 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-	<ui:composition template="/templates/interna.xhtml"> 
-		<ui:define name="titulo">Cadastro de usuários</ui:define>
+	<ui:composition template="/templates/interna.xhtml">
+		<ui:define name="titulo">Cadastro de Usuários</ui:define>
 		<ui:define name="corpo">
-				<h:form>
-		<h1><h:outputText value="#{usuarioBean.usuario.nome}"/>, seja Bem-vindo</h1>
-		Seu cadastro foi efetuado com sucesso.
-		<br />
-		
-		Clique<a href="login.jsf">aqui</a> para efetuar login.
-				</h:form>
+			<h1><h:outputText value="#{usuarioBean.usuario.nome}"/>, seja Bem-vindo</h1>
+			Seu cadastro foi efetuado com sucesso.
+			<br />
+			
+			Clique<a href="login.jsf">aqui</a> para efetuar login.
 		</ui:define>
 	</ui:composition>
 </html>

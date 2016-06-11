@@ -11,39 +11,39 @@ import br.com.sisnema.financeiroweb.model.Usuario;
 import br.com.sisnema.financeiroweb.negocio.IRN;
 
 public class ActionBean<T> {
-
+	
 	protected final IRN<T> negocio;
 
 	public ActionBean(IRN<T> negocio) {
 		super();
 		this.negocio = negocio;
 	}
-
-	@ManagedProperty(value = "#{contextoBean}")
+	
+	@ManagedProperty(value="#{contextoBean}")
 	private ContextoBean contextoBean;
-
-	protected final Usuario obterUsuarioLogado() {
+	
+	protected final Usuario obterUsuarioLogado(){
 		return contextoBean.getUsuarioLogado();
 	}
-
+	
 	protected final Conta obterContaAtiva() {
 		return contextoBean.getContaAtiva();
 	}
-
+	
 	protected void apresentarMensagemDeErro(RNException e) {
 		apresentarMensagemDeErro(e.getMessage());
 	}
-
+	
 	protected void apresentarMensagemDeErro(String msg) {
 		apresentarMensagem(msg, FacesMessage.SEVERITY_ERROR);
 	}
-
+	
 	protected void apresentarMensagemDeSucesso(String msg) {
 		apresentarMensagem(msg, FacesMessage.SEVERITY_INFO);
 	}
-
+	
 	protected void apresentarMensagem(String msg, Severity severity) {
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, msg, ""));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, msg,""));
 	}
 
 	public ContextoBean getContextoBean() {
@@ -53,5 +53,20 @@ public class ActionBean<T> {
 	public void setContextoBean(ContextoBean contextoBean) {
 		this.contextoBean = contextoBean;
 	}
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,18 +7,18 @@ import br.com.sisnema.financeiroweb.exception.DAOException;
 import br.com.sisnema.financeiroweb.exception.RNException;
 
 /**
- * Classe Pai de todas as classes de negï¿½cio
+ * Classe Pai de todas as classes de negócio
  * 
- * @param <T>
- *            - Entidade a ser persistida/pesquisada
+ * @param <T> - Entidade a ser persistida/pesquisada
  */
 public abstract class RN<T> implements IRN<T> {
 
 	/**
-	 * Atributo generico a TODAS as RNs para operaï¿½ï¿½es padrï¿½es ï¿½s DAOs
+	 * Atributo generico a TODAS as RNs para operações
+	 * padrões às DAOs
 	 */
 	protected final IDAO<T> dao;
-
+	
 	/**
 	 * Construtor para inicializar a instancia da DAO
 	 */
@@ -26,7 +26,7 @@ public abstract class RN<T> implements IRN<T> {
 		super();
 		this.dao = dao;
 	}
-
+	
 	public void excluir(T model) throws RNException {
 		try {
 			dao.excluir(model);
@@ -42,5 +42,12 @@ public abstract class RN<T> implements IRN<T> {
 	public List<T> pesquisar(T filtros) {
 		return dao.pesquisar(filtros);
 	}
-
 }
+
+
+
+
+
+
+
+

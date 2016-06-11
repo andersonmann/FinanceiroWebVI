@@ -16,19 +16,35 @@ public class ContaDAO extends DAO<Conta> {
 	}
 
 	public List<Conta> pesquisar(Conta filtros) {
-		Criteria criteria = getSession().createCriteria(Conta.class);
-		if (filtros.getUsuario() != null) {
+		Criteria criteria = getSession().createCriteria(Conta.class); 
+		
+		if(filtros.getUsuario() != null){
 			criteria.add(Restrictions.eq("usuario", filtros.getUsuario()));
-			criteria.addOrder(Order.asc("descricao"));
 		}
+		
+		criteria.addOrder(Order.asc("descricao"));
+		
 		return criteria.list();
 	}
-
-	public Conta buscarFavorita(Usuario usuario) {
-		Criteria criteria = getSession().createCriteria(Conta.class);
-		criteria.add(Restrictions.eq("usuario", usuario));
+	
+	public Conta buscarFavorita(Usuario u){
+		Criteria criteria = getSession().createCriteria(Conta.class); 
+		criteria.add(Restrictions.eq("usuario", u));
 		criteria.add(Restrictions.eq("favorita", true));
+		
 		return (Conta) criteria.uniqueResult();
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

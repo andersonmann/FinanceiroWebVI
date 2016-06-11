@@ -12,22 +12,22 @@ import javax.persistence.ManyToOne;
 public class Conta extends BaseEntity {
 
 	private static final long serialVersionUID = 6505981133006523165L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "cod_conta")	
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="cod_conta")
 	private Integer codigo;
 
-	@Column(name = "des_conta", nullable = false)
+	@Column(name="des_conta", nullable=false)
 	private String descricao;
-
-	@Column(name = "saldo_inicial", nullable = false)
+	
+	@Column(name="saldo_inicial", nullable=false)
 	private float saldoInicial;
-
+	
 	private boolean favorita;
-
+	
 	@ManyToOne
-	@JoinColumn(name = "cod_usuario", nullable = false)
+	@JoinColumn(name="cod_usuario",nullable=false)
 	private Usuario usuario;
 
 	public Conta() {

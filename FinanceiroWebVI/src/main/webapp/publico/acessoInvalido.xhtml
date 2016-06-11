@@ -4,15 +4,13 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-	<ui:composition template="/templates/externa.xhtml"> 
+	<ui:composition template="/templates/interna.xhtml">
 		<ui:define name="titulo">Acesso inválido</ui:define>
 		<ui:define name="corpo">
-				<h:form>
-				<h:graphicImage library="imagens" name="access-denied.png"/>
-				<h1>Tentativa de acesso a uma página sem a devida permissão.</h1>
-				
-				Clique<a href="login.jsf">aqui</a> para efetuar login.
-				</h:form>
-		</ui:define>
+			<h:graphicImage library="imagens" name="access-denied.png"/>
+			<h1>Tentativa de acesso a uma página sem a devida permissão.</h1>
+			
+			Clique<a href="login.jsf">aqui</a> para efetuar login.
+	</ui:define>
 	</ui:composition>
 </html>
